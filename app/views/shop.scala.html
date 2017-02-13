@@ -1,0 +1,250 @@
+@(currentPage: com.avaje.ebean.PagedList[Price], currentSortBy: String, currentOrder: String, currentFilter: String)
+
+<div class="container checking-area" style="margin-top:0;">
+    <div class="row">
+        <div class="checkout-accordion">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseBred">1. Хлеб и Булка</a>
+                        </h4>
+                    </div>
+                    <div id="collapseBred" class="panel-collapse  collapse in panel-body">
+                        <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                            <div class="container">
+                                <div class="row articles">
+                                    @for(price <- currentPage.getList) {
+                                        @if(price.product.getCategoryId()==1){
+                                    <div class="col-md-2 col-sm-3 col-xs-6">
+                                   @*     <!--<div style="padding-bottom: 0%; ">-->
+                                            <!--&lt;!&ndash; <div style="position: absolute; overflow: hidden; display: block-inside;"> &ndash;&gt;-->
+                                            <!--<div style="overflow: hidden; display: block-inside;">-->
+                                                <!--<div>-->
+                                                    <!--<img src="@routes.Assets.at("images/178260.jpg")" alt="img" style="width: 100%; height:100%; object-fit: contain">-->
+                                                <!--</div>-->
+                                                <!--<div class="text" width="100%">-->
+                                                    <!--<a href="@routes.Application.edit(product.getId())"><span>@product.getName()</span></a>-->
+                                                    <!--<p>$ 23.00</p>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</div>--> *@
+                                        <div id="@price.product.getId()" style="position: relative; padding-bottom: 161%; height: 0;">
+                                            <div style="padding: 2%; padding-bottom: 20%; background:#fff;">
+                                                <img  src="@routes.Application.productPhoto(price.product.getId())" alt="img" >
+                                            </div>
+                                            <div class="text" width="100%" style="position: absolute; bottom:0; left:0;height: 41%; overflow: hidden ">
+                                                <span><a href="@routes.Application.edit(price.product.getId())"><span>@price.product.getName()</span></a></span>
+                                                <span><p>$ @price.price</p></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                        }
+                                    }
+                                  </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseBun">2. Сдоба</a>
+                        </h4>
+                    </div>
+                    <div id="collapseBun" class="panel-collapse  panel-body collapse in">
+                        <div class="accordion-list-content" style="overflow: hidden; display: block;">
+                            <div class="container">
+                                <div class="row articles">
+                                 @**   @for(product <- currentPage.getList) {
+                                        @if(product.getCategoryId()==2){
+                                    <div class="col-md-2 col-sm-3 col-xs-6">
+                                        <div id="@price.product.getId()" style="position: relative; padding-bottom: 161%; height: 0;">
+                                            <div style="padding: 2%; padding-bottom: 20%; background:#fff;">
+                                                <img  src="@routes.Application.productPhoto(product.getId())")" alt="img" >
+                                            </div>
+                                            <div class="text" width="100%" style="position: absolute; bottom:0; left:0;height: 41%; overflow: hidden ">
+                                                <span><a href="@routes.Application.edit(product.getId())"><span>@product.getName()</span></a></span>
+                                                <span><p>$ 23.00</p></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        }
+                                    }
+                                 **@
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">3. Подтверждение Заказа</a>
+                        </h4>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse in">
+                        <div class="col-md-12 checkout-cart">
+                            <div class="sixteen columns">
+                                <!-- Cart -->
+                                <table class="table cart-table responsive-table">
+                                    <tbody>
+                                    <tr>
+                                        <th>
+                                            Товар
+                                        </th>
+                                        <th>
+                                            Описание
+                                        </th>
+                                        <th>
+                                            Стоимость
+                                        </th>
+                                        <th>
+                                            Кол.
+                                        </th>
+                                        <th>
+                                            Всего
+                                        </th>
+                                        <th>
+                                        </th>
+                                    </tr>
+
+                                    @for(price <- currentPage.getList) {
+
+                                    <tr>
+                                        <td>
+                                            <img width="20%" src="@routes.Application.productPhoto(price.product.getId())" alt="">
+                                        </td>
+                                        <td class="cart-title">
+                                            <a href="http://premiumlayers.com/demos/delicio/checkout.html#">@price.product.getName()</a>
+                                        </td>
+                                        <td>
+                                            $79
+                                        </td>
+                                        <td>
+                                            <form action="http://premiumlayers.com/demos/delicio/checkout.html#">
+                                                <div class="qtyminus">
+                                                </div>
+                                                <input type="text" name="quantity" value="1" class="qty">
+                                                <div class="qtyplus">
+                                                </div>
+                                            </form>
+                                        </td>
+                                        <td class="cart-total">
+                                            $79.00
+                                        </td>
+                                        <td>
+                                            <a href="http://premiumlayers.com/demos/delicio/checkout.html#" class="cart-remove"></a>
+                                        </td>
+                                    </tr>
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="taxat">
+                                <div class="cart-buttons">
+                                    <a href="http://premiumlayers.com/demos/delicio/checkout.html#">Proceed to Checkout</a>
+                                    <a href="http://premiumlayers.com/demos/delicio/checkout.html#">Update Cart</a>
+                                </div>
+
+                                <div class="col-md-6 taxes nopadding">
+                                    <ul>
+                                        <li><a href="#">доставка &amp; налоги</a></li>
+                                    </ul>
+                                    <p>
+                                        Введите адрес доставки, чтобы проверить возможность доставки.
+                                    </p>
+                                    <div>
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <input type="email" class="form-control" placeholder="Псевдоним">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <input type="password" class="form-control" placeholder="Адрес доставки">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <input type="phone" class="form-control" placeholder="Kонтактный телефон">
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- Cart Totals -->
+                                <div class="col-md-6 eight columns cart-totals">
+                                    <table class="table cart-table test">
+                                        <tbody>
+                                        <tr>
+                                            <th>
+                                                Стоимость Заказа
+                                            </th>
+                                            <td>
+                                                <strong>$178.00</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Доставка
+                                            </th>
+                                            <td>
+                                                Free Shipping
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Общая стоимость
+                                            </th>
+                                            <td>
+                                                <strong>$178.00</strong>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <a href="#" class="calculate-shipping">Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@**
+<div class="container">
+    <div class="row articles">
+       @for(product <- currentPage.getList) {
+
+        <div id="box_@product.getId()" class="col-md-2 col-sm-3 col-xs-6">
+            <div id="@product.getId()" style="position: relative;padding-bottom: 161%; height: 0;">
+                <!--<div style="background-size:contain; background-image: url('@routes.Assets.at("images/178260.jpg")'); padding-bottom: 100%;">-->
+                <div style="padding: 2%; padding-bottom: 20%; background:#fff;">
+                <!--<div>-->
+                 <img  src="@routes.Assets.at("images/178260.jpg")" alt="img" >
+                </div>
+                <div class="text" width="100%" style="position: absolute; bottom:0; left:0;height: 41%; overflow: hidden ">
+                    <span><a href="@routes.Application.edit(product.getId())"><span>@product.getName()</span></a></span>
+                    <!--<span>@product.description</span>-->
+                    <span><p>$ 23.00</p></span>
+                </div>
+
+            </div>
+
+        </div>
+
+      }
+    </div>
+</div>
+
+**@

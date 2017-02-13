@@ -87,6 +87,7 @@
 	font-size:20px;
 }
 }
+
 @media (max-width:581px) {
 .main-flexslider .slides .slides .slide-caption h1 {
 					font-size:20px;
@@ -149,3 +150,34 @@ form.apply-coupon {
 	padding-bottom: 22px;
 }
 }
+@media (min-width: 240px)and (max-width:767px){
+.container {
+    width: 210px;
+}
+}
+@media (min-width: 280px)and (max-width:767px){
+.container {
+    width: 250px;
+}
+}
+@media (min-width: 320px)and (max-width:767px){
+.container {
+    width: 290px;
+}
+}
+@media (min-width: 360px) and (max-width:767px){
+.container {
+    width: 330px;
+}
+}
+@media (min-width: 414px) and (max-width:767px){
+.container {
+    width: 385px;
+}
+}
+@media (min-width: 582px) and (max-width:767px){
+.container {
+    width: 552px;
+}
+}
+

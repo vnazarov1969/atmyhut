@@ -15,16 +15,21 @@ insert into product (id,name,description,introduced,discontinued) values (  9,'�
 insert into product (id,name,description,introduced,discontinued) values (  10,'Рулет с корицей','Рулет с корицей Гост:394424',null,null);
 
 
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  1, 1,45,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  2, 2,50,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  3, 3,30,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  4, 4,55,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  5, 5,65,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  6, 6,40,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  7, 7,50,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  8, 8,50,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  9, 9,33,1,null,null);
-insert into price (id,product_id, price,company_id,introduced,discontinued) values (  10, 10,27,1,null,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  1, 1,45,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  2, 2,50,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  3, 3,30,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  4, 4,55,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  5, 5,65,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  6, 6,40,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  7, 7,50,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  8, 8,50,1,CURRENT_TIMESTAMP,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  9, 9,33,1,CURRENT_TIMESTAMP,,null);
+insert into price (id,product_id, price,company_id,introduced,discontinued) values (  10, 10,27,1,CURRENT_TIMESTAMP,null);
+insert into price (id, product_id, price,company_id,introduced,discontinued) values ( 11, 1,50,1,CURRENT_TIMESTAMP,null);
+insert into price (id, product_id, price,company_id,introduced,discontinued) values ( 12, 1,51,1,CURRENT_TIMESTAMP,null);
+insert into price (id, product_id, price,company_id,introduced,discontinued) values ( 13, 1,52,1,CURRENT_TIMESTAMP,null);
+insert into price (id, product_id, price,company_id,introduced,discontinued) values ( 14, 1,53,1,CURRENT_TIMESTAMP,null);
+
 
 
 # --- !Downs

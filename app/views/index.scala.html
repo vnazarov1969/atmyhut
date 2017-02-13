@@ -1,0 +1,54 @@
+@(currentPage: com.avaje.ebean.PagedList[Price], currentSortBy: String, currentOrder: String, currentFilter: String)
+
+
+@main {
+    <div style="padding-bottom: 1px">
+
+<!--flex-slider-->
+    <div class="main-flexslider">
+        <ul class="slides">
+            <li class="slides" style="width: 100%;  float: left; margin-right: 0%; position: relative; opacity: 0; display: block; z-index: 1;">
+                <img src="/assets/images/pretzel_croissant-A.jpg" alt="slide 01" draggable="false">
+                <div class="slide-caption">
+                    <h1>Свежие ПЛЮШКИ домой!</h1>
+                    <h2>Мы принесем ВАМ утром свежую выпечку из ближайшей ПЕКАРНИ!</h2>
+                    <h2><a href="#">SEE OUR OFFER</a></h2>
+                </div>
+            </li>
+
+            <!--        <li class="slides" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img src="./delicio_files/slide-02.jpg" alt="slide 01" draggable="false">
+                   <div class="slide-caption">
+                       <h2>We are Delicio</h2>
+                       <h2>ideal for every Chocoholic</h2>
+                       <h2><a href="http://premiumlayers.com/demos/delicio/#">SEE OUR OFFER</a></h2>
+                   </div>
+                   </li>
+                   <li class="slides flex-active-slide" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;"><img src="./delicio_files/slide-03.jpg" alt="slide 01" draggable="false">
+                   <div class="slide-caption">
+                       <h2>We are Delicio</h2>
+                       <h2>ideal for every Chocoholic</h2>
+                       <h2><a href="http://premiumlayers.com/demos/delicio/#">SEE OUR OFFER</a></h2>
+                   </div>
+                   </li>
+                   <li class="slides" style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;"><img src="./delicio_files/slide-04.jpg" alt="slide 01" draggable="false">
+                   <div class="slide-caption">
+                       <h2>We are Delicio</h2>
+                       <h2>ideal for every Chocoholic</h2>
+                       <h2><a href="http://premiumlayers.com/demos/delicio/#">SEE OUR OFFER</a></h2>
+                   </div>
+                   </li>
+               -->
+            </ul>
+            <ul class="flex-direction-nav">
+                <li><a class="flex-prev" href="http://premiumlayers.com/demos/delicio/#"></a></li>
+                <li><a class="flex-next" href="http://premiumlayers.com/demos/delicio/#"></a></li>
+            </ul>
+    </div>
+
+    <!--end-flex-slider-->
+
+        @shop(currentPage, currentSortBy, currentOrder, currentFilter)
+    </div>
+
+}
+

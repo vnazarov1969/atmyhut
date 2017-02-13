@@ -3,7 +3,8 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
-import play.db.ebean.*;
+import com.avaje.ebean.Model;
+import com.avaje.ebean.PagedList;
 import play.data.format.*;
 import play.data.validation.*;
 
@@ -46,15 +47,17 @@ public class Computer extends Model {
      * @param order Sort order (either or asc or desc)
      * @param filter Filter applied on the name column
      */
-    public static Page<Computer> page(int page, int pageSize, String sortBy, String order, String filter) {
-        return 
-            find.where()
-                .ilike("name", "%" + filter + "%")
-                .orderBy(sortBy + " " + order)
-                .fetch("company")
-                .findPagingList(pageSize)
-                .setFetchAhead(false)
-                .getPage(page);
+    public static PagedList<Computer> page(int page, int pageSize, String sortBy, String order, String filter) {
+      return
+              find.where()
+                      .ilike("name", "%" + filter + "%")
+                      .orderBy(sortBy + " " + order)
+                      .fetch("company")
+                .findPagedList(page,pageSize);
+
+//                .findPagingList(pageSize)
+//                .setFetchAhead(false)
+//                .getPage(page);
     }
     
 }

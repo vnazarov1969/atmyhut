@@ -1,11 +1,12 @@
 package models;
 
+import java.io.File;
 import java.util.*;
 import javax.persistence.*;
 
-import com.avaje.ebean.Page;
+import com.avaje.ebean.Model;
+import com.avaje.ebean.PagedList;
 import play.data.format.Formats;
-import play.db.ebean.*;
 import play.data.validation.*;
 
 /**
@@ -16,24 +17,89 @@ import play.data.validation.*;
 
     private static final long serialVersionUID = 1L;
 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    public Long id;
+    private Long id;
 
-    @Constraints.Required
-    public String name;
+//    @Constraints.Required
+    private Long category_id = new Long(1);
+
+//    @Constraints.Required
+    private String name;
+
 
     @Formats.DateTime(pattern="yyyy-MM-dd")
-    public Date introduced;
+    private Date introduced;
 
     @Formats.DateTime(pattern="yyyy-MM-dd")
-    public Date discontinued;
+    private Date discontinued;
 
-    public String description;
+    private String description;
+
+  @Lob
+  @Basic(fetch=FetchType.EAGER)
+  private byte[] photo;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public Long getCategoryId() {
+    return category_id;
+  }
+
+  public void setCategoryId(Long category_id) {
+    this.category_id = category_id;
+  }
+
+  public Date getIntroduced() {
+    return introduced;
+  }
+
+  public void setIntroduced(Date introduced) {
+    this.introduced = introduced;
+  }
+
+  public Date getDiscontinued() {
+    return discontinued;
+  }
+
+  public void setDiscontinued(Date discontinued) {
+    this.discontinued = discontinued;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public byte[] getPhoto() {
+    return photo;
+  }
+
+  public void setPhoto(byte[] photo) {
+    this.photo = photo;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
   /**
      * Generic query helper for entity Computer with id Long
      */
-    public static Finder<Long,Computer> find = new Finder<Long,Computer>(Long.class, Computer.class);
+    public static Finder<Long,Product> find = new Finder<Long,Product>(Long.class, Product.class);
 
     /**
      * Return a page of computer
@@ -44,15 +110,15 @@ import play.data.validation.*;
      * @param order Sort order (either or asc or desc)
      * @param filter Filter applied on the name column
      */
-    public static Page<Computer> page(int page, int pageSize, String sortBy, String order, String filter) {
+    public static PagedList<Product> page(int page, int pageSize, String sortBy, String order, String filter) {
       return
               find.where()
                       .ilike("name", "%" + filter + "%")
                       .orderBy(sortBy + " " + order)
-                      .fetch("company")
-                      .findPagingList(pageSize)
-                      .setFetchAhead(false)
-                      .getPage(page);
+                      .findPagedList(page, pageSize);
+//                      .setFetchAhead(false)
+//                      ..getPageList(page);
     }
+
 
   }

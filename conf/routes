@@ -3,7 +3,7 @@
 # ~~~~
 
 # Default path will just redirect to the computer list
-GET     /                           controllers.Application.index()
+GET     /                           controllers.Application.index(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
 
 # Computers list (look at the default values for pagination parameters)
 GET     /computers                  controllers.Application.list(p:Int ?= 0, s ?= "name", o ?= "asc", f ?= "")
@@ -18,6 +18,10 @@ POST    /computers/:id              controllers.Application.update(id:Long)
 
 # Delete a computer
 POST    /computers/:id/delete       controllers.Application.delete(id:Long)
+
+GET     /products/:id/photo         controllers.Application.productPhoto(id:Long)
+POST    /products/:id/photo         controllers.Application.uploadProductPhoto(id:Long)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

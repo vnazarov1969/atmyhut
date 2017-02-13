@@ -441,7 +441,7 @@ a {
   border-radius: 4px;
 }
 /*-- Logo --*/
-.navbar>.container .navbar-brand,.navbar>.container-fluid .navbar-brand {
+.navbar>.container .navbar-brand,.navbar>.container-fluid .navbar-brand,div.logo .navbar-brand  {
   padding:0;
   margin-left: 0;
 }
@@ -2533,4 +2533,32 @@ i:hover {
   -ms-transform:rotate(10deg);
   -webkit-transform:rotate(10deg);
   -webkit-animation-delay: 0.5s;
+}
+
+.box {
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+  height: 100%;
+
+  /*padding: 16px;*/
+}
+/*
+.box:after {
+  content: '';
+  display: block;
+  height: 0;
+  padding-top: 100%;
+}
+*/
+/*.box span {
+  position: absolute;
+}*/
+
+.bottom_aligner {
+    display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+    width: 0px;
 }

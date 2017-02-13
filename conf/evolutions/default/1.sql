@@ -11,10 +11,12 @@ create table company (
 
 create table product (
   id                        bigint not null,
+  category_id 			        bigint not null default 1,
   introduced                timestamp,
   discontinued              timestamp,
   name                      varchar(255),
   description								varchar(1024),
+  photo											bytea,
   constraint pk_product primary key (id))
 ;
 
