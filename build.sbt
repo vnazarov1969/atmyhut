@@ -19,6 +19,6 @@ libraryDependencies ++= Seq(
 
 //lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean,JavaAppPackaging )
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava,  PlayEbean)
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
 fork in run := false
