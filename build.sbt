@@ -8,16 +8,17 @@ scalaVersion := "2.11.7"
 routesGenerator := StaticRoutesGenerator
 
 libraryDependencies ++= Seq(
-  jdbc,
+//  jdbc,
 //  javaEbean,
 //  "org.webjars" % "jquery" % "2.1.1",
   "org.webjars" % "jquery-validation" % "1.13.1" exclude("org.webjars", "jquery"),
   "org.webjars" % "bootstrap" % "3.3.1",
-  "org.postgresql" % "postgresql" % "9.3-1102-jdbc4"
+  "org.postgresql" % "postgresql" % "9.4-1201-jdbc41"
 )
 //libraryDependencies += "play-logback_2.11"
 
-lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean)
+//lazy val root = (project in file(".")).enablePlugins(PlayJava, PlayEbean,JavaAppPackaging )
 
+lazy val root = (project in file(".")).enablePlugins(PlayJava,  PlayEbean)
 
 fork in run := false
